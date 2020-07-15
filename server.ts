@@ -1,3 +1,3 @@
-const mgs = 'Hello, World!'
+const mgs = 'Hello, World!';
 
-console.log(mgs)
+console.log(mgs);
