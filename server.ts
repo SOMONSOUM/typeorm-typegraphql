@@ -4,7 +4,7 @@ import { ApolloServer } from 'apollo-server-express';
 import { buildSchema } from 'type-graphql';
 import { config } from 'dotenv';
 import { createConnection } from 'typeorm';
-import RegisterResolver from './src/graphql/user/user.resolver';
+import RegisterResolver from './src/services/user/user.resolver';
 config();
 
 const app: express.Application = express();
