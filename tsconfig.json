@@ -24,8 +24,14 @@
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true
-    // "baseUrl": "."
+    "resolveJsonModule": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@Entity/*": ["entity/*"],
+      "@Schema/*": ["graphql/schema/*"],
+      "@Resolver/*": ["graphql/resolver/*"]
+    },
+    "typeRoots": ["./node_modules/@types", "./App/@types"]
   },
   "exclude": ["node_modules"]
 }

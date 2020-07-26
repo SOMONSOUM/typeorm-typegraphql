@@ -1,21 +1,27 @@
+/** @format */
+
 import 'reflect-metadata';
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import { buildSchema } from 'type-graphql';
 import { config } from 'dotenv';
 import { createConnection } from 'typeorm';
-import RegisterResolver from './src/graphql/user/user.resolver';
 config();
 
+// Initialize
 const app: express.Application = express();
 const path = '/graphql';
 const PORT = process.env.PORT || 8080;
 
-const main = async () => {
+// All Resolvers
+import UserResolver from '@Resolver/user.resolver';
+
+// Bootstrap function
+const main = async (): Promise<void> => {
   await createConnection();
 
   const schema = await buildSchema({
-    resolvers: [RegisterResolver],
+    resolvers: [UserResolver],
   });
 
   const apolloServer = new ApolloServer({ schema });

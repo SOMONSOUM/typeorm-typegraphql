@@ -1,8 +1,10 @@
+/** @format */
+
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from 'typeorm';
 import { IsEmail } from 'class-validator';
 
 @Entity()
-export class User extends BaseEntity {
+export default class UserEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -23,10 +25,10 @@ export class User extends BaseEntity {
   profile_picture: string;
 
   @Column({ type: 'varchar' })
-  displayName: string;
+  display_name: string;
 
   @Column({ type: 'varchar' })
-  phoneNumber: string;
+  phone_number: string;
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   created_at: Date;

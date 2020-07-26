@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "ts-node-dev --respawn --no-deps --debug --clear --no-notify server.ts",
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --no-deps --debug --clear --no-notify server.ts",
     "build": "tsc"
   },
   "dependencies": {
@@ -31,6 +31,7 @@
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
     "ts-node-dev": "^1.0.0-pre.51",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^3.9.6"
   },
   "husky": {
