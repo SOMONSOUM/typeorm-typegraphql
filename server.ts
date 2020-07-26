@@ -5,7 +5,7 @@ import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import { buildSchema } from 'type-graphql';
 import { config } from 'dotenv';
-import { createConnection } from 'typeorm';
+import { createConnection, getConnectionOptions } from 'typeorm';
 config();
 
 // Initialize
@@ -18,7 +18,13 @@ import UserResolver from '@Resolver/user.resolver';
 
 // Bootstrap function
 const main = async (): Promise<void> => {
-  await createConnection();
+  const connectionOptions = await getConnectionOptions('development');
+  createConnection({
+    ...connectionOptions,
+    name: 'default',
+  }).then(async (connection) => {
+    await connection.runMigrations();
+  });
 
   const schema = await buildSchema({
     resolvers: [UserResolver],

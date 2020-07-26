@@ -1,7 +1,7 @@
 /** @format */
 
-import { Resolver, Query, Mutation } from 'type-graphql';
-import User from '@Schema/user/user.type';
+import { Resolver, Query } from 'type-graphql';
+import UserType from '@Schema/user/user.type';
 import UserEntity from '@Entity/User';
 
 @Resolver()
@@ -11,8 +11,8 @@ export default class UserResolver {
     return 'Hello, World!';
   }
 
-  @Query(() => [User])
-  async userList(): Promise<User[]> {
+  @Query(() => [UserType])
+  async userList(): Promise<UserType[]> {
     const users = await UserEntity.find();
     return users;
   }
